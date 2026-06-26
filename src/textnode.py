@@ -50,3 +50,34 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode | None:
     
     if text_node.text_type == TextType.IMAGE:
         return LeafNode("img", None, {"src": text_node.url, "alt": text_node.text})
+    
+def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_type: TextType) -> list[TextNode]:
+    new_nodes: list[TextNode] = []
+
+    for node in old_nodes:
+        if node.text_type != TextType.TEXT:
+            new_nodes.append(node)
+        else:
+            node_list = node.text.split(delimiter)
+            text_list = []
+            if len(node_list) % 2 == 0:
+                raise Exception("Missing closing delimiter")
+            else:
+                for n in range(0, len(node_list)):
+                    if n % 2 == 0:
+                        text_list.append(TextNode(node_list[n], TextType.TEXT))
+                    else:
+                        text_list.append(TextNode(node_list[n], text_type))
+
+                if text_list[-1].text == "":
+                    text_list.pop(-1)
+                
+                if text_list[0].text == "":
+                    text_list.pop(0)
+
+            new_nodes.extend(text_list)
+
+
+
+
+    return new_nodes
