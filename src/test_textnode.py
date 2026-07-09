@@ -197,6 +197,7 @@ class TestTextNode(unittest.TestCase):
             ],
             new_nodes
         )
+
     def test_text_to_textnodes(self):
         text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
         textnodes = text_to_textnodes(text)
@@ -214,10 +215,6 @@ class TestTextNode(unittest.TestCase):
                             ],
             textnodes
             )
-
-
-
-
 
 
 

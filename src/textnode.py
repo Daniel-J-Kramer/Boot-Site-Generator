@@ -61,7 +61,7 @@ def split_nodes_delimiter(old_nodes: list[TextNode], delimiter: str, text_type: 
         else:
             node_list = node.text.split(delimiter)
             text_list = []
-            if len(node_list) % 2 == 0:
+            if node.text.count(delimiter) % 2 != 0:
                 raise Exception("Missing closing delimiter")
             else:
                 for n in range(0, len(node_list)):
@@ -137,6 +137,11 @@ def split_nodes_links(old_nodes: list[TextNode]) -> list[TextNode]:
 
 def text_to_textnodes(text):
     new_nodes = []
-    new_nodes = split_nodes_links(split_nodes_image(split_nodes_delimiter(split_nodes_delimiter(split_nodes_delimiter([TextNode(text, TextType.TEXT)],"**",TextType.BOLD),"_",TextType.ITALIC),"`",TextType.CODE)))
+    new_nodes = split_nodes_links(
+        split_nodes_image(
+            split_nodes_delimiter(
+                split_nodes_delimiter(
+                    split_nodes_delimiter(
+                        [TextNode(text, TextType.TEXT)],"**",TextType.BOLD),"_",TextType.ITALIC),"`",TextType.CODE)))
 
     return new_nodes
