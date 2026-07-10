@@ -1,2 +1,4 @@
 # Boot-Site-Generator
-Static Site Generator Project from Boot.dev
+Static Site Generator guided project from Boot.dev
+
+All code built by me
