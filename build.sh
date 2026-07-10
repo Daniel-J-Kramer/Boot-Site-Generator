@@ -1,1 +1,1 @@
-python3 src/main.py "/BootSiteGenerator/"
+python3 src/main.py "/Boot-Site-Generator/"
