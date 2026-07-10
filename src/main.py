@@ -55,8 +55,8 @@ def generate_page(from_path, template_path, dest_path, basepath):
     title = extract_title(from_path)
     read_temp = read_temp.replace("{{ Title }}", title)
     read_temp = read_temp.replace("{{ Content }}", contents)
-    read_temp = read_temp.replace("href=\"/", f"href=\"/{basepath}/")
-    read_temp = read_temp.replace("src=\"/", f"src=\"/{basepath}/")
+    read_temp = read_temp.replace("href=\"/", f"href=\"{basepath}")
+    read_temp = read_temp.replace("src=\"/", f"src=\"{basepath}")
 
     destination = open(dest_path, "w")
     destination.write(read_temp)
