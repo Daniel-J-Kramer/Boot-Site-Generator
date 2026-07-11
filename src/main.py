@@ -9,10 +9,10 @@ def main():
         basepath = sys.argv[1]
     else:
         basepath = "/"
-    target_dir = f".{basepath}docs"
-    source_dir = f".{basepath}static"
-    content_dir = f".{basepath}content"
-    template = f".{basepath}template.html"
+    target_dir = f"./docs"
+    source_dir = f"./static"
+    content_dir = f"./content"
+    template = f"./template.html"
     if os.path.exists(target_dir):
         shutil.rmtree(target_dir)
     os.mkdir(target_dir)
